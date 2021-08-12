@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from sign import views
 from django.conf.urls import url,include
+from django.views import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +33,6 @@ urlpatterns = [
     path('sign_index/<int:eid>/',views.sign_index),
     path('sign_index_action/<int:eid>/',views.sign_index_action),
     path('logout/',views.logout),
-    path('api/',include(('sign.urls','sign'),namespace='sign'))
+    path('api/',include(('sign.urls','sign'),namespace='sign')),
+    url(r'^static/(?P<path>.*)$',static.serve,{'document_root':settings.STATIC_ROOT},name='static')
 ]

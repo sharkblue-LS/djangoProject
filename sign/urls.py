@@ -1,6 +1,7 @@
-from django.conf.urls import url
 from sign import views_if
 from django.urls import path
+
+
 
 
 urlpatterns = [
@@ -18,3 +19,4 @@ urlpatterns = [
 	#/api/get_csrf
 	path('get_csrf/',views_if.get_csrf,name='get_csrf')
 ]
+
